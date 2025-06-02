@@ -17,7 +17,7 @@ app.secret_key = 'Asdu2843$%j!4'
 
 @app.route("/")
 def home(): 
-    return render_template('home.html')
+    return render_template('stress.html')
 
 
 
@@ -187,6 +187,8 @@ def get_fuzzy_plot():
 
     img_base64 = base64.b64encode(buf.getvalue()).decode('utf-8')
     return img_base64
+
+
 
 def plot_all_fuzzy_memberships():
     x = np.linspace(0, 100, 500)
