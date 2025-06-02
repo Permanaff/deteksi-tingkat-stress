@@ -3,6 +3,10 @@ import numpy as np
 import pandas as pd
 import os
 import itertools
+import matplotlib.pyplot as plt
+import io
+import base64
+from flask import send_file
 
 
 
@@ -35,13 +39,6 @@ def detect_stress() :
 
     # if len(variabel_fuzzy) != 5:
     #     return jsonify({'error': 'Data fitur tidak lengkap'}), 400
-    
-    # print(kualitas_tidur)
-    # print(performa_akademik)
-    # print(hub_mhs_dosen)
-    # print(support_sosial)
-    # print(kondisi_kehidupan)
-    # make_rule()
     
     stress_level = compute_stress_level(kualitas_tidur, performa_akademik, hub_mhs_dosen, support_sosial, kondisi_kehidupan)
     
