@@ -1,0 +1,357 @@
+{% extends 'layout.html' %}
+{% block head %}
+<title>Halaman Home</title>
+
+<style>
+    option {
+        border-radius: 0px !important;
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+<div class="container d-flex justify-content-center mt-5 mb-5">
+    <div class="col-md-6">
+        <p class="fs-3 fw-bold text-center">Deteksi Tingkat Stress Mahasiswa</p>
+        
+        <!-- Identitas Mahasiswa -->
+        <div class="card rounded-4">
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="nama" class="form-label">Nama Lengkap</label>
+                    <input class="form-control rounded-4" type="text" placeholder="Nama Lengkap" id="nama">
+                </div>
+                <div class="mb-3">
+                    <label for="semester" class="form-label">Semester</label>
+                    <select class="form-control form-select rounded-4" id="semester">
+                        <option selected>Semester</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card rounded-4 mt-3">
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label fs-5">Bagaimana Kualitas Tidur Anda?</label>
+                    <div class="row">
+                        <div class="col">
+                            <p class="fs-7">Kurang Baik</p>
+                        </div>
+                        <div class="col">
+                            <p class="fs-7 text-end">Sangat Baik</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-center">
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="kt" value="20" id="kt1">
+                        <label for="kt1" class="form-check-label d-block">1</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="kt" value="40" id="kt2">
+                        <label for="kt2" class="form-check-label d-block">2</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="kt" value="60" id="kt3">
+                        <label for="kt3" class="form-check-label d-block">3</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="kt" value="80" id="kt4">
+                        <label for="kt4" class="form-check-label d-block">4</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="kt" value="100" id="kt5">
+                        <label for="kt5" class="form-check-label d-block">5</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="card rounded-4 mt-3 visually-hidden" id="param2">
+            <div class="card-body">
+                <div class="mb-3 ">
+                    <label class="form-label fs-5">Bagaimana Performa Akademik Anda?</label>
+                    <div class="row">
+                        <div class="col">
+                            <p class="fs-7">Kurang Baik</p>
+                        </div>
+                        <div class="col">
+                            <p class="fs-7 text-end">Sangat Baik</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-center">
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="pa" value="20" id="pa1">
+                        <label for="pa1" class="form-check-label d-block">1</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="pa" value="40" id="pa4">
+                        <label for="pa2" class="form-check-label d-block">2</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="pa" value="60" id="pa3">
+                        <label for="pa3" class="form-check-label d-block">3</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="pa" value="80" id="pa4">
+                        <label for="pa4" class="form-check-label d-block">4</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="pa" value="100" id="pa5">
+                        <label for="pa5" class="form-check-label d-block">5</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="card rounded-4 mt-3 visually-hidden" id="param3">
+            <div class="card-body">
+                <div class="mb-3 ">
+                    <label class="form-label fs-5">Bagaimana Hubungan Anda dengan Dosen?</label>
+                    <div class="row">
+                        <div class="col">
+                            <p class="fs-7">Kurang Baik</p>
+                        </div>
+                        <div class="col">
+                            <p class="fs-7 text-end">Sangat Baik</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-center">
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="hmd" value="20" id="hmd1">
+                        <label for="hmd1" class="form-check-label d-block">1</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="hmd" value="40" id="hmd2">
+                        <label for="hmd2" class="form-check-label d-block">2</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="hmd" value="60" id="hmd3">
+                        <label for="hmd3" class="form-check-label d-block">3</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="hmd" value="80" id="hmd4">
+                        <label for="hmd4" class="form-check-label d-block">4</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="hmd" value="100" id="hmd5">
+                        <label for="hmd5" class="form-check-label d-block">5</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="card rounded-4 mt-3 visually-hidden" id="param4">
+            <div class="card-body">
+                <div class="mb-3 ">
+                    <label class="form-label fs-5">Bagaimana Support Sosial di Lingkungan Sekitar Anda?</label>
+                    <div class="row">
+                        <div class="col">
+                            <p class="fs-7">Kurang Baik</p>
+                        </div>
+                        <div class="col">
+                            <p class="fs-7 text-end">Sangat Baik</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-center">
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="ssl" value="20" id="ssl1">
+                        <label for="ssl1" class="form-check-label d-block">1</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="ssl" value="40" id="ssl2">
+                        <label for="ssl2" class="form-check-label d-block">2</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="ssl" value="60" id="ssl3">
+                        <label for="ssl3" class="form-check-label d-block">3</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="ssl" value="80" id="ssl4">
+                        <label for="ssl4" class="form-check-label d-block">4</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="ssl" value="100" id="ssl4">
+                        <label for="ssl5" class="form-check-label d-block">5</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="card rounded-4 mt-3 visually-hidden" id="param5">
+            <div class="card-body">
+
+                <div class="mb-3 ">
+                    <label class="form-label fs-5">Bagaimana Kondisi Kehidupan Anda?</label>
+                    <div class="row">
+                        <div class="col">
+                            <p class="fs-7">Kurang Baik</p>
+                        </div>
+                        <div class="col">
+                            <p class="fs-7 text-end">Sangat Baik</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-center">
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="kh" value="20" id="kh1">
+                        <label for="kh1" class="form-check-label d-block">1</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="kh" value="40" id="kh2">
+                        <label for="kh2" class="form-check-label d-block">2</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="kh" value="60" id="kh3">
+                        <label for="kh3" class="form-check-label d-block">3</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="kh" value="80" id="kh4">
+                        <label for="kh4" class="form-check-label d-block">4</label>
+                        </div>
+                        <div class="col">
+                        <input type="radio" class="form-check-input d-block mx-auto" name="kh" value="100" id="kh4">
+                        <label for="kh5" class="form-check-label d-block">5</label>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+            </div>
+        </div>
+        
+        <div class="container d-flex justify-content-center mt-5">
+            <button class="btn btn-primary w-50 detectBtn">Deteksi</button>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        
+        const kualitasTidurInpt = document.querySelectorAll('input[name="kt"]')
+        const performaAkademikInpt = document.querySelectorAll('input[name="pa"]')
+        const dosenMhsInpt = document.querySelectorAll('input[name="hmd"]')
+        const supportSosialInpt = document.querySelectorAll('input[name="ssl"]')
+        const kondisiHidupInpt = document.querySelectorAll('input[name="kh"]')
+
+        const param2Card = document.querySelector('#param2')
+        const param3Card = document.querySelector('#param3')
+        const param4Card = document.querySelector('#param4')
+        const param5Card = document.querySelector('#param5')
+
+        let kualitasTidur, performaAkademik, hubMhsDosen, supportSosial, kondisiHidup;
+
+
+        const detectBtn = document.querySelector('.detectBtn')
+
+        
+        validasiParameter()
+
+        kualitasTidurInpt.forEach(radio => {
+            radio.addEventListener('change', function () {
+                param2Card.classList.remove('visually-hidden')
+                kualitasTidur = document.querySelector('input[name="kt"]:checked');
+                validasiParameter()
+            });
+        });
+
+        performaAkademikInpt.forEach(radio => {
+            radio.addEventListener('change', function () {
+                param3Card.classList.remove('visually-hidden');
+                performaAkademik = document.querySelector('input[name="pa"]:checked');
+                validasiParameter();
+            });
+        });
+
+        dosenMhsInpt.forEach(radio => {
+            radio.addEventListener('change', function () {
+                param4Card.classList.remove('visually-hidden')
+                hubMhsDosen = document.querySelector('input[name="hmd"]:checked'); 
+                validasiParameter()
+            });
+        });
+
+        supportSosialInpt.forEach(radio => {
+            radio.addEventListener('change', function () {
+                param5Card.classList.remove('visually-hidden')
+                supportSosial = document.querySelector('input[name="ssl"]:checked'); 
+                validasiParameter()
+            });
+        });
+
+        kondisiHidupInpt.forEach(radio => {
+            radio.addEventListener('change', function () {
+                kondisiHidup = document.querySelector('input[name="kh"]:checked'); 
+                validasiParameter()
+            });
+        });
+
+
+        detectBtn.addEventListener('click', function () {
+            const validParam = validasiParameter()
+            if (validParam) {
+                deteksiStress()
+            } else {
+                detectBtn.disabled = !validParam
+            }
+        })
+
+        function validasiParameter() {
+            const validParam = kualitasTidur && performaAkademik && hubMhsDosen && supportSosial && kondisiHidup;
+
+            detectBtn.disabled = !validParam
+            return validParam;
+        }
+
+
+
+
+
+        function deteksiStress () {
+            console.log(kualitasTidur.value)
+            console.log(performaAkademik.value)
+            console.log(hubMhsDosen.value)
+            console.log(supportSosial.value)
+            console.log(kondisiHidup.value)
+            
+        }
+
+    });
+
+
+
+
+
+
+
+
+
+</script>
+{% endblock %}

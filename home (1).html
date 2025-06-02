@@ -1,0 +1,121 @@
+{% extends 'layout.html' %}
+{% block head %}
+<title>Klasifikasi Bunga Iris</title>
+
+
+<style>
+    body {
+        background-color: #f7f9fd;
+    }
+
+    .setosa {
+        color: #FFD700;
+    }
+
+    .versicolor {
+        color: #0000FF;
+    }
+
+    .virginica {
+        color: #800080;
+    }
+
+</style>
+{%endblock%}
+
+
+{%block body%}
+    
+<div class="container d-flex justify-content-center mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="card px-0 rounded-0" style="width:700px;">
+            <div class="card-header" style="background-color: white;">
+                <div class="text-center">
+                    <h1 class="fs-4">Klasifikasi Bunga Iris</h1>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form-group row g-3 mb-3">
+                    <div class="col ps-0">
+                        <label for="sepal-length" class="form-label">Panjang kelopak (sepal length)</label>
+                        <input type="number" step="0.1" class="form-control" id="sepal-length" placeholder="sepal length" aria-label="sepal length">
+                    </div>
+                    <div class="col pe-0">
+                        <label for="sepal-width" class="form-label">Lebar kelopak (sepal width)</label>
+                        <input type="number" step="0.1" class="form-control" id="sepal-width" placeholder="sepal width" aria-label="sepal width">
+                    </div>
+                </div>
+    
+                <div class="form-group row g-3 mt-3">
+                    <div class="col ps-0">
+                        <label for="petal-length" class="form-label">Panjang daun (petal length)</label>
+                        <input type="number" step="0.1" class="form-control" id="petal-length" placeholder="petal length" aria-label="petal length">
+                    </div>
+                    <div class="col pe-0">
+                        <label for="petal-width" class="form-label">Lebar daun (petal width)</label>
+                        <input type="number" step="0.1" class="form-control" id="petal-width" placeholder="petal width" aria-label="petal width">
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+        
+        
+        
+        
+       
+        <div class="container">
+            <div class="text-center mt-4">
+                <p class="fs-5 mb-0" id="hasil"></p>
+                <p class="fs-2 fw-bold" id="result"></p>
+            </div>
+    
+            <div class="container d-flex justify-content-center">
+                <button class="btn btn-primary" onclick="predict()">Prediksi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}
+
+
+{%block script%}
+      
+<script>
+     $(document).ready(function () {
+        $('.form-control').keyup(function(){
+            $('#hasil').text('')
+            $('#result').text('')
+        });
+     });
+
+    function predict() {
+        let data = {
+            "sepal-length" : parseFloat($('#sepal-length').val()),
+            "sepal-width" : parseFloat($('#sepal-width').val()),
+            "petal-length" : parseFloat($('#petal-length').val()),
+            "petal-width" : parseFloat($('#petal-width').val()),
+        }
+
+        fetch('/predict', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            $('#hasil').text('Hasil')
+            $('#result').text(data.predicted_class)
+
+            $('#result').removeClass("satosa versicolor virginica");
+            $('#result').addClass(data.predicted_class === "setosa" ? "setosa" : data.predicted_class === "versicolor" ? "versicolor" : "virginica");
+
+        })
+        .catch(error => console.error('Error:', error));
+    }
+</script>
+{%endblock%}
