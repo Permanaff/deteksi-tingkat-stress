@@ -6,7 +6,6 @@ import itertools
 import matplotlib.pyplot as plt
 import io
 import base64
-from flask import send_file
 
 
 
