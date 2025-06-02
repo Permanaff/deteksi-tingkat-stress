@@ -17,7 +17,7 @@ app.secret_key = 'Asdu2843$%j!4'
 
 @app.route("/")
 def home(): 
-    return render_template('home.html')
+    return render_template('stress.html')
 
 
 
