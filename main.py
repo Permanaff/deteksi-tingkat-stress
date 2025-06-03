@@ -16,13 +16,7 @@ app.secret_key = 'Asdu2843$%j!4'
 
 @app.route("/")
 def home(): 
-    return render_template('stress.html')
-
-
-
-@app.route("/deteksi-stress")
-def deteksi_stress(): 
-    return render_template('stress.html')
+    return render_template('home.html')
 
 
 
@@ -41,10 +35,12 @@ def detect_stress() :
     
     stress_level = compute_stress_level(kualitas_tidur, performa_akademik, hub_mhs_dosen, support_sosial, kondisi_kehidupan)
     
-    if stress_level < 50:
+    if stress_level < 35:
         tingkat_stress = "Normal"
+    elif stress_level < 65:
+        tingkat_stress = "Sedang"
     else:
-         tingkat_stress = "Tinggi"
+        tingkat_stress = "Tinggi"
 
     return jsonify({"level_stress" : f"{stress_level:.2f}", "tingkat_stress" : tingkat_stress}), 200
     
