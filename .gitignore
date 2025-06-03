@@ -1,7 +1,8 @@
 env/
-48_rules.csv/
-rules_stress_fuzzy.csv/
-rules_stress_fuzzy.json/
-main2.py/
-main3.py/
-fuzzy_3_level.ipynb/
+
+48_rules.csv
+rules_stress_fuzzy.csv
+rules_stress_fuzzy.json
+main2.py
+main3.py
+fuzzy_3_level.ipynb
