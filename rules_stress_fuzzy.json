@@ -1,0 +1,434 @@
+[
+    {
+        "No": 1,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Tinggi"
+    },
+    {
+        "No": 2,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Tinggi"
+    },
+    {
+        "No": 3,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Tinggi"
+    },
+    {
+        "No": 4,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 5,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Tinggi"
+    },
+    {
+        "No": 6,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 7,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Sedang"
+    },
+    {
+        "No": 8,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 9,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Tinggi"
+    },
+    {
+        "No": 10,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Tinggi"
+    },
+    {
+        "No": 11,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Tinggi"
+    },
+    {
+        "No": 12,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 13,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Tinggi"
+    },
+    {
+        "No": 14,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 15,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Sedang"
+    },
+    {
+        "No": 16,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 17,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Tinggi"
+    },
+    {
+        "No": 18,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 19,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Sedang"
+    },
+    {
+        "No": 20,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 21,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Sedang"
+    },
+    {
+        "No": 22,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 23,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Sedang"
+    },
+    {
+        "No": 24,
+        "Kualitas Tidur": "Buruk",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Normal"
+    },
+    {
+        "No": 25,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Tinggi"
+    },
+    {
+        "No": 26,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 27,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Sedang"
+    },
+    {
+        "No": 28,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 29,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Sedang"
+    },
+    {
+        "No": 30,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 31,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Sedang"
+    },
+    {
+        "No": 32,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Rendah",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Normal"
+    },
+    {
+        "No": 33,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Tinggi"
+    },
+    {
+        "No": 34,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 35,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Sedang"
+    },
+    {
+        "No": 36,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 37,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Sedang"
+    },
+    {
+        "No": 38,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 39,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Sedang"
+    },
+    {
+        "No": 40,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Sedang",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Normal"
+    },
+    {
+        "No": 41,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Sedang"
+    },
+    {
+        "No": 42,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Sedang"
+    },
+    {
+        "No": 43,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Sedang"
+    },
+    {
+        "No": 44,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Buruk",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Normal"
+    },
+    {
+        "No": 45,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Sedang"
+    },
+    {
+        "No": 46,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Buruk",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Normal"
+    },
+    {
+        "No": 47,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Buruk",
+        "Output": "Normal"
+    },
+    {
+        "No": 48,
+        "Kualitas Tidur": "Baik",
+        "Performa Akademik": "Tinggi",
+        "Hubungan Dosen-Mhs": "Baik",
+        "Support Sosial": "Baik",
+        "Kondisi Kehidupan": "Baik",
+        "Output": "Normal"
+    }
+]
