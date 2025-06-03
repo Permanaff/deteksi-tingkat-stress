@@ -66,54 +66,56 @@ def academic_performance_membership(x, low=25, mid=50, high=75):
     if x <= low:
         return {'Rendah': 1, 'Sedang': 0, 'Tinggi': 0}
     elif x < mid:
-        rendah = (mid - x)/(mid - low)
-        sedang = (x - low)/(mid - low)
+        rendah = (mid - x) / (mid - low)
+        sedang = (x - low) / (mid - low)
         return {'Rendah': rendah, 'Sedang': sedang, 'Tinggi': 0}
-    elif x <= high:
-        return {'Rendah': 0, 'Sedang': 1, 'Tinggi': 0}
-    elif x < 80:
-        sedang = (80 - x)/(high - mid)
-        tinggi = (x - mid)/(high - mid)
+    elif x < high:
+        sedang = (high - x) / (high - mid)
+        tinggi = (x - mid) / (high - mid)
         return {'Rendah': 0, 'Sedang': sedang, 'Tinggi': tinggi}
     else:
-        return {'Rendah': 0, 'Sedang': 0, 'Tinggi': 1}  
+        return {'Rendah': 0, 'Sedang': 0, 'Tinggi': 1} 
     
 
 
 def determine_consequent(rule):
     negative_count = 0
-    if rule['Sleep Quality'] == 'Buruk':
+    if rule['Kualitas Tidur'] == 'Buruk':
         negative_count += 1
-    if rule['Academic Performance'] == 'Rendah': 
+    if rule['Performa Akademik'] in ['Rendah', 'Sedang']:
         negative_count += 1
-    if rule['Hubungan Dosen-Mahasiswa'] == 'Buruk':
+    if rule['Hubungan Dosen-Mhs'] == 'Buruk':
         negative_count += 1
-    if rule['Social Support'] == 'Buruk':
+    if rule['Support Sosial'] == 'Buruk':
         negative_count += 1
-    if rule['Living Condition'] == 'Buruk':
+    if rule['Kondisi Kehidupan'] == 'Buruk':
         negative_count += 1
-    return 'Tinggi' if negative_count >= 3 else 'Normal'
 
+    if negative_count >= 4:
+        return 'Tinggi'
+    elif negative_count >= 2:
+        return 'Sedang'
+    else:
+        return 'Normal'
 
 
 def compute_stress_level(sleep_quality, academic_performance, hubungan, social_support, living_condition):
     input_dict = {
-        'Sleep Quality': sleep_quality,
-        'Academic Performance': academic_performance,
-        'Hubungan Dosen-Mahasiswa': hubungan,
-        'Social Support': social_support,
-        'Living Condition': living_condition
+        'Kualitas Tidur': sleep_quality,
+        'Performa Akademik': academic_performance,
+        'Hubungan Dosen-Mhs': hubungan,
+        'Support Sosial': social_support,
+        'Kondisi Kehidupan': living_condition
     }
     
     # Hitung nilai keanggotaan
     memberships = {}
     for factor, value in input_dict.items():
-        if factor == 'Academic Performance':
+        if factor == 'Performa Akademik':
             memberships[factor] = academic_performance_membership(value)
         else:
             memberships[factor] = two_category_membership(value)
     
-    # Proses inferensi Tsukamoto
     factor_names = list(input_dict.keys())
     category_lists = [list(memberships[factor].keys()) for factor in factor_names]
     
@@ -125,7 +127,13 @@ def compute_stress_level(sleep_quality, academic_performance, hubungan, social_s
         if alpha > 0:
             rule = {factor_names[i]: combo[i] for i in range(5)}
             consequent = determine_consequent(rule)
-            z_i = 50 + 50 * alpha if consequent == 'Tinggi' else 50 - 50 * alpha
+            # Z nilai output fuzzy (misal: Normal=25, Sedang=50, Tinggi=75, adjusted dengan alpha)
+            if consequent == 'Tinggi':
+                z_i = 75 * alpha
+            elif consequent == 'Sedang':
+                z_i = 50 * alpha
+            else:
+                z_i = 25 * alpha
             total_alpha_z += alpha * z_i
             total_alpha += alpha
     
