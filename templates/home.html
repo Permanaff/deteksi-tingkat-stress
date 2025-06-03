@@ -41,6 +41,11 @@
 
     .button-primary {
         background-color: #176B87 !important;
+        border: #1a6e8a solid !important;
+    }
+    .button-primary.btn-primary:hover {
+        background-color: #18657e !important; 
+        /* border: 2px #1a6e8a solid !important; */
     }
 
 
@@ -116,6 +121,17 @@
         border: 1px #176B87 solid;
     }
     
+    #btn-deteksi-ulang {
+        width: 12rem !important;
+    }
+
+    #kirim-btn {
+        width: 7rem !important;
+    }
+
+    #prev-btn {
+        width: 7rem !important;
+    }
 
     @media (max-width: 768px) {
         #btn-start {
@@ -202,7 +218,7 @@
 <div class="container-fluid d-flex justify-content-center py-5 mt-4 visually-hidden form-section">
     <div class="col-md-6">
         <div class="card rounded-4 mt-3" id="parameter">
-            <div class="card-body visually-hiden hiddn-fade-in param-section" id="param1">
+            <div class="card-body visually-hiden hiden-fade-in param-section" id="param1">
                 <div class="mb-3">
                     <p class="form-label fs-5">Bagaimana Kualitas Tidur Anda?</p>
                     <div class="row justify-content-center">
@@ -438,7 +454,7 @@
             </div>
         </div>
 
-        <div class="d-flex justify-content-end mt-3">
+        <div class="d-flex justify-content-end mt-3" id="btn-container">
             <button class="btn btn-primary visually-hidden" id="prev-btn">
                 Kembali
             </button>
@@ -446,24 +462,32 @@
             <button class="btn btn-primary button-primary ms-3 hidden-fade-in visually-hidden" id="next-btn" disabled>
                 Selanjutnya
             </button>
+
+            <button class="btn btn-success ms-3 hidden-fade-in visually-hidden " id="kirim-btn">
+                Kirim
+            </button>
+
+
         </div>
 
-        <div class="card rounded-4 mt-3 hidden-fade-in visually-hidden" id="result">
-            <div class="card-body">
-                <p class="fs-5 fw-bold text-center text-title">Tingkat Stress Kamu</p>
-
-                <p class="fs-1 fw-bold text-center mb-0 p-0" id="score"></p>
-                <div class="d-flex justify-content-center my-0 py-0">
-                    <hr class="w-25">
+        <div class="hidden-fade-in visually-hidden" id="result">
+            <div class="card rounded-4 mt-3">
+                <div class="card-body">
+                    <p class="fs-5 fw-bold text-center text-title">Tingkat Stress Kamu</p>
+    
+                    <p class="fs-1 fw-bold text-center mb-0 p-0" id="score"></p>
+                    <div class="d-flex justify-content-center m-0 p-0">
+                        <hr class="w-25 m-0">
+                    </div>
+                    <p class="fs-2 fw-bold text-center mt-0 p-0" id="tingkatan"></p>
                 </div>
-                <p class="fs-2 fw-bold text-center mt-0 p-0" id="tingkatan"></p>
             </div>
-            <img id="fuzzy_plot" src="" alt="Fuzzy Plot" />
-
-        </div>
-        
-        <div class="container d-flex justify-content-center mt-5 visually-hidden">
-            <button class="btn btn-primary w-50 detectBtn">Deteksi</button>
+    
+            <div class="d-flex justify-content-center mt-3">
+                <button class="btn btn-primary button-primary ms-3" id="btn-deteksi-ulang">
+                    Ulangi
+                </button>
+            </div>
         </div>
 
     </div>
@@ -482,6 +506,8 @@
         const kondisiHidupInpt = document.querySelectorAll('input[name="kh"]');
 
         const startBtn = document.querySelector('#btn-start');
+        const ulangiBtn = document.querySelector('#btn-deteksi-ulang')
+
         const mainSection = document.querySelector('.main-section');
         const formSection = document.querySelector('.form-section');
 
@@ -496,8 +522,11 @@
         const resultScore = document.querySelector('#score');
         const resultTingkatan = document.querySelector('#tingkatan');
 
+        const btnContainer = document.querySelector('#btn-container')
         const nextBtn = document.querySelector('#next-btn');
         const prevBtn = document.querySelector('#prev-btn');
+        const kirimBtn = document.querySelector('#kirim-btn');
+
 
         const transisi = document.querySelector('#transisi');
         
@@ -512,18 +541,16 @@
         const detectBtn = document.querySelector('.detectBtn')
 
         
-        
-        validasiParameter()
+        // validasiParameter()
 
         kualitasTidurInpt.forEach(radio => {
             radio.addEventListener('change', function () {
                 kualitasTidur = document.querySelector('input[name="kt"]:checked');
                 ganti_kuisoner(param1Card, param2Card)
-                validasiParameter()
+                
                 currentIndex++
                 validasi_prev_btn()
                 validasi_next_btn()
-                console.log(!validasiParameter())
             });
         });
 
@@ -532,7 +559,7 @@
                 performaAkademik = document.querySelector('input[name="pa"]:checked');
                 ganti_kuisoner(param2Card, param3Card)
                 currentIndex++
-                validasiParameter();
+                
             });
         });
 
@@ -541,7 +568,7 @@
                 hubMhsDosen = document.querySelector('input[name="hmd"]:checked'); 
                 ganti_kuisoner(param3Card, param4Card)
                 currentIndex++
-                validasiParameter()
+                
             });
         });
 
@@ -550,29 +577,31 @@
                 supportSosial = document.querySelector('input[name="ssl"]:checked'); 
                 ganti_kuisoner(param4Card, param5Card)
                 currentIndex++
-                validasiParameter()
+                
             });
         });
+
+
 
         kondisiHidupInpt.forEach(radio => {
             radio.addEventListener('change', function () {
                 kondisiHidup = document.querySelector('input[name="kh"]:checked'); 
-                currentIndex++
+                // currentIndex++
                 deteksiStress()
-                ganti_kuisoner(parameterCard, resultCard)
-                animasi_hidden_out(nextBtn)
-                animasi_hidden_out(prevBtn)
-                validasiParameter()
+                show_kirim_btn()
+                // ganti_kuisoner(parameterCard, resultCard)
+                // animasi_hidden_out(nextBtn)
+                // animasi_hidden_out(prevBtn)
             });
         });
 
 
-        function validasiParameter() {
-            const validParam = kualitasTidur && performaAkademik && hubMhsDosen && supportSosial && kondisiHidup;
+        // function validasiParameter() {
+        //     const validParam = kualitasTidur && performaAkademik && hubMhsDosen && supportSosial && kondisiHidup;
 
-            detectBtn.disabled = !validParam
-            return validParam;
-        }
+        //     detectBtn.disabled = !validParam
+        //     return validParam;
+        // }
 
 
         function animasi_hidden_out (elemen) {
@@ -582,6 +611,8 @@
                 elemen.classList.add('visually-hidden');
             }, 500); 
 
+
+            
         }  function animasi_hidden_in (elemen) {
             setTimeout(() => {
                 elemen.classList.remove('visually-hidden');
@@ -608,28 +639,41 @@
                 next_param.classList.add('show-fade-in')
                     setTimeout(() => {
                         animasi_hidden_out(transisi)
-                    }, 100); 
+                    }, 150); 
                 setTimeout(() => {
                 }, 500); 
-                // animasi_hidden_out(transisi)
             }, 700); 
             
         }
 
 
-      
+        // Fungsi Button Start ketika di klik
         startBtn.addEventListener('click', () => {
             animasi_hidden_out(mainSection)
             animasi_hidden_in(param1Card)
             setTimeout(() => {
                 formSection.classList.remove('visually-hidden')
-            }, 500); 
+                parameterCard.classList.remove('visually-hidden')
+            }, 550); 
         })
 
-        nextBtn.addEventListener('click', function () {
-            // this.classList.add('visually-hidden');
-            this.disabled = true
+        // Fungsi Button Kirim ketika di klik
+        kirimBtn.addEventListener('click', () => {
+            ganti_kuisoner(parameterCard, resultCard)
+            setTimeout(() => {
+                animasi_hidden_out(btnContainer)
+            }, 100);
             
+            
+        })
+
+        ulangiBtn.addEventListener('click', () => {
+            ulangi_deteksi()
+        })
+
+
+        nextBtn.addEventListener('click', function () {
+            this.disabled = true
             if (validasi_next_btn()){
                 this.disabled = false
                 if (currentIndex < kuisionerList.length - 1) {
@@ -641,7 +685,6 @@
                     validasi_prev_btn()
                 }
             } else {
-                // this.classList.add('visually-hidden');
                 this.disabled = true
             }
         });
@@ -650,17 +693,14 @@
         prevBtn.addEventListener('click', function ()  {
             validasi_prev_btn()
             if (currentIndex > 0) {
-                // this.classList.remove('visually-hidden')
                 const current = kuisionerList[currentIndex];
                 const prev = kuisionerList[currentIndex - 1];
-                // console.log(prev)
                 ganti_kuisoner(current, prev);
+                animasi_hidden_out(kirimBtn)
                 currentIndex--;
                 validasi_prev_btn()
             } 
-            // else {
-            //     this.classList.add('visually-hidden')
-            // }
+          
             validasi_next_btn()
         });
 
@@ -670,9 +710,12 @@
 
             const selected = current.querySelector('input[type="radio"]:checked');
             nextBtn.disabled = !selected;
-            if (!selected) {
+            if (!selected || currentIndex >= kuisionerList.length - 1) {
                 setTimeout(() => {
                     animasi_hidden_out(nextBtn)
+                    if (currentIndex >= kuisionerList.length - 1) {
+                        show_kirim_btn()
+                    }
                 }, 150);
             } else {
                 setTimeout(() => {
@@ -680,11 +723,12 @@
                 }, 150);
 
             }
+
+
             return selected
         }
 
         function validasi_prev_btn() {
-            console.log(currentIndex)
             if (currentIndex >= 1) {
                 setTimeout(() => {
                     animasi_hidden_in(prevBtn)
@@ -695,6 +739,44 @@
                     animasi_hidden_out(prevBtn)
                 }, 300);
             }
+        }
+
+
+        function show_kirim_btn() {
+            animasi_hidden_in(kirimBtn)
+        }
+
+
+        function ulangi_deteksi() {
+            param5Card.classList.add('visually-hidden');
+            animasi_hidden_in(btnContainer)
+
+            kirimBtn.classList.remove('show-fade-in')
+            kirimBtn.classList.add('visually-hidden')
+
+            animasi_hidden_out(resultCard)
+            animasi_hidden_in(mainSection)
+            setTimeout(() => {
+            
+                mainSection.classList.remove('visually-hidden')
+                resultCard.classList.remove('show-fade-in')
+                resultCard.classList.add('hidden-fade-in', 'visually-hidden')
+
+                formSection.classList.add('visually-hidden')
+
+                param1Card.classList.remove('visually-hidden')
+
+                currentIndex = 0
+                kualitasTidur, performaAkademik, hubMhsDosen, supportSosial, kondisiHidup = null
+            
+                kuisionerList.forEach(section => {
+                    const checkedRadios = section.querySelectorAll('input[type="radio"]:checked');
+                    checkedRadios.forEach(radio => {
+                        radio.checked = false;
+                    });
+                });
+
+            }, 500); 
         }
 
 
@@ -716,15 +798,14 @@
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                
                 resultScore.innerHTML = data.level_stress
                 resultTingkatan.innerHTML = data.tingkat_stress
-                fuzzyPlot.src = `data:image/png;base64, ${data.fuzzy_plot_base64}`
 
                 if (data.tingkat_stress === "Normal") { 
                     resultScore.classList.add('text-success')
                 } else if  (data.tingkat_stress === "Sedang") { 
-                    resultScore.classList.add('text-danger')
+                    resultScore.classList.add('text-warning')
                 } 
                 else {
                     resultScore.classList.add('text-danger')
@@ -732,8 +813,6 @@
             })
             .catch(error => console.error('Error:', error));
         }
-        
-
     });
 
 
